@@ -1,0 +1,21 @@
+create index Primero on orderdetails(orderLineNumber)
+create index Segundo orderdetails(quantityOrdered, orderLineNumber)
+create index Tercero orderdetails(orderLineNumber, quantityOrdered)
+
+select * from orderdetails force index(nombre)
+where orderLineNumber = 1 and quantity ordered > 50
+
+select productCode from orderdetails force index(nombre)
+where orderLineNumber = 1 and quantity ordered > 50
+
+select orderLineNumber, count(*) from orderdetails force index(nombre)
+where orderLineNumber = 1 and quantity ordered > 50
+group by orderLineNumber
+
+         | Select1  | Select2  | Select3|  
+|
+Primero | 95.20    | 95.20    | 95.20  |   
+|
+Segundo | 93.41    | 27.62    | 27.62  |   
+|
+Tercero | 8.01     | 3.02     | 3.02   |
