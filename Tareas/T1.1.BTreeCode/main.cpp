@@ -61,7 +61,11 @@ class BTree
                               int temp = x.inside[0];
                               x.inside[0] = n;
                               x.L = new BTreeNodes(x);
+                              x.R = new BTreeNodes(x);
                               insert(temp, *x.L);
+                              insert(x.inside[1]);
+                              x.inside[1]=0;
+                              x.numbers--;
                           }
                           else
                           {
@@ -119,8 +123,11 @@ class BTree
                         {
                             int temp = x.inside[0];
                             x.inside[0] = n;
+                            x.R = new BTreeNodes(x);
                             insert(temp, *x.L);
-                        }
+                            insert(x.inside[1]);
+                            x.inside[1]=0;
+                            x.numbers--;                        }
                         else
                         {
                             int temp = x.inside[0];
@@ -180,6 +187,9 @@ class BTree
                             x.inside[0] = n;
                             x.L = new BTreeNodes(x);
                             insert(temp, *x.L);
+                            insert(x.inside[1]);
+                            x.inside[1]=0;
+                            x.numbers--;
                         }
                         else
                         {
@@ -204,7 +214,7 @@ class BTree
 
 
         ///if has both sons
-        if(x.hasL== false&&x.hasR==true)
+        if(x.hasL== true&&x.hasR==true)
         {
             if(x.numbers==0)
             {
@@ -237,6 +247,9 @@ class BTree
                             int temp = x.inside[0];
                             x.inside[0] = n;
                             insert(temp, *x.L);
+                            insert(x.inside[1]);
+                            x.inside[1]=0;
+                            x.numbers--;
                         }
                         else
                         {
@@ -279,20 +292,7 @@ class BTree
 
 
 
-int main() {
-    int iInput=1;
-    vector<vector<int>> vSize;
-    vector<vector<int>> vNumbers;
-
-    while (iInput!=0)
-    {
-        cout<<"Input number:(0 to end the program)";
-        cin>>iInput;
-
-
-
-    }
-
-
+int main()
+{
 
 }
